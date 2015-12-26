@@ -49,7 +49,7 @@ Same as `request(options)`, except returns the response body (or errors on a non
 
 ```javascript
   myChain()
-    .request('http://jsonip.com/')
+    .requestBody('http://jsonip.com/')
     .tap(function (err, response) {
       console.log(response); /* > '{"ip":"123.45.67.89","about":"/about","Pro!":"http://getjsonip.com"}' */
     });
@@ -60,7 +60,7 @@ Same as `requestBody(options)`, except returns the body parsed as JSON.
 
 ```javascript
   myChain()
-    .request('http://jsonip.com/')
+    .requestJson('http://jsonip.com/')
     .tap(function (err, response) {
       console.log(response); /* > {ip: '123.45.67.89', about: '/about', 'Pro!': 'http://getjsonip.com' } */
     });
