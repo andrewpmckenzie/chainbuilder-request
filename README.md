@@ -1,4 +1,4 @@
-# chainbuilder-request
+# chainbuilder-request [![Build Status](https://travis-ci.org/andrewpmckenzie/chainbuilder-request.svg)](https://travis-ci.org/andrewpmckenzie/chainbuilder-request)
 
 A [request](https://github.com/request/request) mixin for [chainbuilder](https://www.npmjs.com/package/chainbuilder). 
 
