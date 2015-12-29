@@ -1,6 +1,6 @@
 {
   "name": "chainbuilder-request",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Request mixin for chainbuilder.",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
-    "chainbuilder": "^1.0.10",
+    "chainbuilder": "^2.0.0",
     "mocha": "^2.3.4",
     "mockery": "^1.4.0",
     "nock": "^3.6.0",

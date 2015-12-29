@@ -23,7 +23,7 @@ describe('chainbuilder-request', function () {
       nock('http://www.example.com').post('/user-two', { token: 'foo' }).reply(200, 'ok');
 
       // Run the test
-      myChain()
+      myChain({})
         .request({
           url: 'http://www.example.com/user-two',
           method: 'POST',
@@ -44,7 +44,7 @@ describe('chainbuilder-request', function () {
       nock('http://www.example.com').get('/user-one').reply(200, { name: 'fred' });
 
       // Run the test
-      myChain()
+      myChain({})
         .requestJson('http://www.example.com/user-one')
         .tap(function (err, result) {
           if (err) return;
@@ -58,7 +58,7 @@ describe('chainbuilder-request', function () {
       nock('http://www.example.com').post('/user-two', { token: 'foo' }).reply(200, { name: 'sarah' });
 
       // Run the test
-      myChain()
+      myChain({})
         .requestJson({
           url: 'http://www.example.com/user-two',
           method: 'POST',
@@ -76,7 +76,7 @@ describe('chainbuilder-request', function () {
       nock('http://www.example.com').get('/user-three').reply(200, { name: 'sam' });
 
       // Run the test
-      myChain()
+      myChain({})
         .inject('http://www.example.com')
         .requestJson(function () { return this.previousResult() + '/user-three'; })
         .tap(function (err, result) {
@@ -91,7 +91,7 @@ describe('chainbuilder-request', function () {
       nock('http://www.example.com').get('/user-four').reply(200, { name: 'jill' });
 
       // Run the test
-      myChain()
+      myChain({})
         .inject('http://www.example.com/user-four')
         .requestJson()
         .tap(function (err, result) {
@@ -106,7 +106,7 @@ describe('chainbuilder-request', function () {
       nock('http://www.example.com').get('/user-five').reply(500, 'BANG');
 
       // Run the test
-      myChain()
+      myChain({})
         .requestJson('http://www.example.com/user-five')
         .end(function (err) {
           assert.deepEqual(err && err.message, 'Received 500 response: BANG');
@@ -121,7 +121,7 @@ describe('chainbuilder-request', function () {
       nock('http://www.example.com').get('/user-one').reply(200, 'fred');
 
       // Run the test
-      myChain()
+      myChain({})
         .requestBody('http://www.example.com/user-one')
         .tap(function (err, result) {
           if (err) return;
@@ -135,7 +135,7 @@ describe('chainbuilder-request', function () {
       nock('http://www.example.com').post('/user-two', { token: 'foo' }).reply(200, { name: 'sarah' });
 
       // Run the test
-      myChain()
+      myChain({})
         .requestBody({
           url: 'http://www.example.com/user-two',
           method: 'POST',
@@ -154,7 +154,7 @@ describe('chainbuilder-request', function () {
       nock('http://www.example.com').get('/user-three').reply(200, { name: 'sam' });
 
       // Run the test
-      myChain()
+      myChain({})
         .inject('http://www.example.com')
         .requestBody(function () { return this.previousResult() + '/user-three'; })
         .tap(function (err, result) {
@@ -169,7 +169,7 @@ describe('chainbuilder-request', function () {
       nock('http://www.example.com').get('/user-four').reply(200, 'jill');
 
       // Run the test
-      myChain()
+      myChain({})
         .inject('http://www.example.com/user-four')
         .requestBody()
         .tap(function (err, result) {
