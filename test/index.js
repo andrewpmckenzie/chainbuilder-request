@@ -7,9 +7,6 @@ describe('chainbuilder-request', function () {
   var myChain;
   beforeEach(function () {
     myChain = chainBuilder({
-      methods: {
-        inject: function (val, done) { done(null, val); }
-      },
       mixins: [
         require('..')()
       ]
